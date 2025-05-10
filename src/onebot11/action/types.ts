@@ -107,4 +107,8 @@ export enum ActionName {
   GoCQHTTP_SendGroupSign = 'send_group_sign',
   GoCQHTTP_SetQQProfile = 'set_qq_profile',
   GoCQHTTP_SetGroupPortrait = 'set_group_portrait',
+
+  // ntqqapi
+  NTQQAPI_INVOKE = 'ntqq_invoke',
+  NTQQAPI_HOOK_LOG = 'ntqq_hook_log',
 }

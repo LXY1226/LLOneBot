@@ -168,10 +168,10 @@ export namespace OB11Entities {
           }
 
           // 284840486: 合并消息内侧 消息具体定位不到
-          if (!replyMsg && msg.peerUin !== '284840486') {
-            ctx.logger.info('queryMsgs', msgList.map(e => pick(e, ['msgSeq', 'msgRandom'])), record.msgRandom)
-            throw new Error('回复消息验证失败')
-          }
+          // if (!replyMsg && msg.peerUin !== '284840486' && msg.peerUin !== '1094950020') {
+          //   ctx.logger.info('queryMsgs', msgList.map(e => pick(e, ['msgSeq', 'msgRandom'])), record.msgRandom)
+          //   throw new Error('回复消息验证失败')
+          // }
           messageSegment = {
             type: OB11MessageDataType.Reply,
             data: {
@@ -356,7 +356,9 @@ export namespace OB11Entities {
         messageSegment = {
           type: OB11MessageDataType.Forward,
           data: {
-            id: msg.msgId
+            id: msg.msgId,
+            chatType: "" + msg.chatType,
+            peerUid: msg.peerUid,
           }
         }
       }

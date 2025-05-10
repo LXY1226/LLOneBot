@@ -91,6 +91,8 @@ import { SetGroupPortrait } from './go-cqhttp/SetGroupPortrait'
 import { MoveGroupFile } from './llonebot/MoveGroupFile'
 import { GetGroupShutList } from './llonebot/GetGroupShutList'
 import { RenameGroupFileFolder } from './llonebot/RenameGroupFileFolder'
+import { InternalInvokeAPI } from './go-cqhttp/InternalInvokeAPI'
+import { InternalSetHookLog } from './go-cqhttp/InternalSetHookLog'
 
 export function initActionMap(adapter: Adapter) {
   const actionHandlers = [
@@ -189,6 +191,10 @@ export function initActionMap(adapter: Adapter) {
     new SendGroupSign(adapter),
     new SetQQProfile(adapter),
     new SetGroupPortrait(adapter),
+
+    // ntqqapi
+    new InternalInvokeAPI(adapter),
+    new InternalSetHookLog(adapter),
   ]
   const actionMap = new Map()
   for (const action of actionHandlers) {
